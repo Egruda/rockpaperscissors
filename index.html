@@ -1,0 +1,66 @@
+<script>
+
+
+
+function getComputerChoice () {
+    const choice = ['rock', 'paper', 'scissors'];
+    const random = Math.floor(Math.random() * choice.length);
+    return choice[random];
+}
+
+
+function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt('Choose rock, paper, or scissors.').toLowerCase();
+    computerSelection = getComputerChoice();
+    if (playerSelection === 'rock' && computerSelection === 'rock') {
+        return 'tie';
+    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        return 'lose';
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return 'win';
+    } else if (playerSelection === 'paper' && computerSelection === 'paper') {
+        return 'tie';
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return 'win';
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        return 'lose';
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return 'win';
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        return 'lose';
+    } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+        return 'tie';
+    }    
+}
+
+
+function game () {
+    let win = 0;
+    let lose = 0;
+    let tie = 0;
+    let result;
+
+    for (let i = 0; i < 5; i++) {
+        result = playRound();
+        if (result === 'win') {
+            win++;
+        } else if (result === 'lose') {
+            lose++;
+        } else {
+            tie++;
+        }
+        result = '0';
+    }
+
+    if (win > lose) {
+        return console.log('You win!')
+    } else if (lose > win) {
+        return console.log('You lose!')
+    } else {
+        return console.log('Tie!')
+    }
+}
+
+game();
+
+</script>
