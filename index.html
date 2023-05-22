@@ -35,10 +35,8 @@ const buttons = document.querySelectorAll('.button');
 buttons.forEach(button => button.addEventListener('click', (e) => {
     playRound(e);
     updateScore();
-    resultAlert();
+    setTimeout(resultAlert, 300);
 }));
-
-
 
 function resultAlert () {
     if(win === 5) {
